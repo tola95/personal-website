@@ -1,0 +1,10 @@
+.NavBarItem {
+    width: 10vmin;
+    float: left;
+}
+
+.NavBar {
+    margin-left: 10vmin;
+    margin-top: 5vmin;
+    text-align: center;
+}
