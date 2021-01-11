@@ -1,6 +1,16 @@
 .NavBarItem {
-    width: 10vmin;
+    width: 11vmin;
     float: left;
+    color: black;
+    border: none;
+    outline: none;
+    background-color: white;
+    font-size: medium;
+}
+
+b {
+    border-bottom: 3px solid goldenrod;
+    padding: 0 0 4px;
 }
 
 .NavBar {

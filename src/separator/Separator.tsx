@@ -1,6 +1,5 @@
 import React from 'react';
 import './Separator.css'
-import NavBarItem from "../navbar/NavBarItem";
 
 export interface SeparatorProps {
     children?: JSX.Element[];
@@ -8,18 +7,17 @@ export interface SeparatorProps {
 }
 
 export default class Separator extends React.Component<SeparatorProps> {
-    private separatedElements: JSX.Element[] = [];
 
     public constructor(props: any) {
         super(props);
-        const { children, separator } = this.props;
-        this.separatedElements = separateElements(children, separator);
     }
 
     public render() {
+        const { children, separator } = this.props;
+        const separatedElements = separateElements(children, separator);
         return (
             <div className="Separator">
-                { this.separatedElements }
+                { separatedElements }
             </div>);
     }
 }
@@ -36,9 +34,7 @@ const separateElements = (originalElements?: JSX.Element[], separator?: JSX.Elem
             separatedElements[i] = originalElements[i/2];
         } else {
             separatedElements[i] = separator ||
-                (<NavBarItem text={
-                "|"
-                } key={`separator_${i}`}/>);
+                (<div key={`separator_${i}`}>|</div>);
         }
     }
     return separatedElements;

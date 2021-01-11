@@ -2,39 +2,49 @@ import React from 'react';
 import Logo from "../logo/Logo";
 import Separator from "../separator/Separator";
 import NavBarItem from "./NavBarItem";
-// import NavBarSeparator from "./NavBarSeparator";
 
 export interface NavBarProps {
     items: string[];
 }
 
-export default class NavBar extends React.Component<NavBarProps> {
-    private navItems: JSX.Element[] = [];
+export interface NavBarState {
+    selectedItem: string;
+}
 
+export const DEFAULT_SELECTED_ITEM = "home";
+
+export const SeparatorItem = (<NavBarItem key={`separator`} text="|" selected={false}/>);
+
+export default class NavBar extends React.Component<NavBarProps, NavBarState> {
     public constructor(props: any) {
         super(props);
-        this.navItems = generateNavItems(this.props.items);
+        this.state = {
+            selectedItem: DEFAULT_SELECTED_ITEM
+        }
     }
 
     public render() {
-        console.log(JSON.stringify(this.navItems));
+        const navItems = this.generateNavItems();
         return (
             <div className="NavBar">
-                <Logo />
-                <Separator>
-                    {this.navItems}
+                <Logo/>
+                <Separator separator={SeparatorItem}>
+                    {navItems}
                 </Separator>
             </div>
         );
     }
+
+    private generateNavItems = () => {
+        return this.props.items.map(item => (
+            <NavBarItem text={item} key={item} selected={this.state.selectedItem === item} onClick={this.onClick.bind(null, item)}/>
+        ));
+    }
+
+    private onClick = (item: string) => {
+        this.setState({
+            selectedItem: item
+        });
+    }
+
 }
-
-const generateNavItems = (items: string[]) => {
-    return items.map(item => (
-        <NavBarItem text={item} key={item}/>
-    ));
-};
-
-// const navBarSeparator = () => {return (
-//     <NavBarSeparator />
-// )};
