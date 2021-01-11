@@ -13,8 +13,6 @@ export interface NavBarState {
 
 export const DEFAULT_SELECTED_ITEM = "home";
 
-export const SeparatorItem = (<NavBarItem key={`separator`} text="|" selected={false}/>);
-
 export default class NavBar extends React.Component<NavBarProps, NavBarState> {
     public constructor(props: any) {
         super(props);
@@ -28,7 +26,7 @@ export default class NavBar extends React.Component<NavBarProps, NavBarState> {
         return (
             <div className="NavBar">
                 <Logo/>
-                <Separator separator={SeparatorItem} width={80}>
+                <Separator width={80}>
                     {navItems}
                 </Separator>
             </div>
@@ -39,7 +37,7 @@ export default class NavBar extends React.Component<NavBarProps, NavBarState> {
         return this.props.items.map(item => (
             <NavBarItem text={item} key={item} selected={this.state.selectedItem === item} onClick={this.onClick.bind(null, item)}/>
         ));
-    }
+    };
 
     private onClick = (item: string) => {
         this.setState({
