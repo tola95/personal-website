@@ -4,6 +4,7 @@ import './Separator.css'
 export interface SeparatorProps {
     children?: JSX.Element[];
     separator?: JSX.Element;
+    width: number;
 }
 
 export default class Separator extends React.Component<SeparatorProps> {
@@ -16,7 +17,7 @@ export default class Separator extends React.Component<SeparatorProps> {
         const { children, separator } = this.props;
         const separatedElements = separateElements(children, separator);
         return (
-            <div className="Separator">
+            <div className="Separator" style={{width: this.props.width + "vmin"}}>
                 { separatedElements }
             </div>);
     }
@@ -34,7 +35,7 @@ const separateElements = (originalElements?: JSX.Element[], separator?: JSX.Elem
             separatedElements[i] = originalElements[i/2];
         } else {
             separatedElements[i] = separator ||
-                (<div key={`separator_${i}`}>|</div>);
+                (<div className="SeparatorIcon" key={`separator_${i}`} style={{width: "10vmin"}}>|</div>);
         }
     }
     return separatedElements;

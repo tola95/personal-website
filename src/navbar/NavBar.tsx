@@ -28,7 +28,7 @@ export default class NavBar extends React.Component<NavBarProps, NavBarState> {
         return (
             <div className="NavBar">
                 <Logo/>
-                <Separator separator={SeparatorItem}>
+                <Separator separator={SeparatorItem} width={80}>
                     {navItems}
                 </Separator>
             </div>
