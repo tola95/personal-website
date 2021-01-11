@@ -17,16 +17,12 @@ export const socialsList: SocialIcon[] = [
         target: "https://github.com/tola95"
     },
     {
-        icon: instagram,
-        target: "https://instagram.com/tolaxv"
-    },
-    {
         icon: linkedIn,
-        target: "www.linkedin.com/in/omotola-babasola-2a8540a7"
+        target: "https://linkedin.com/in/omotola-babasola-2a8540a7"
     },
     {
         icon: twitter,
-        target: "www.twitter.com/tolz_b"
+        target: "https://twitter.com/tolz_b"
     }
 ];
 
