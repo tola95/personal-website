@@ -16,5 +16,6 @@ b {
 .NavBar {
     margin-left: 10vmin;
     margin-top: 5vmin;
+    height: 20vmin;
     text-align: center;
 }

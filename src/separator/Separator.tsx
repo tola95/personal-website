@@ -1,10 +1,14 @@
 import React from 'react';
-import './Separator.css'
+import './Separator.css';
+import { separateElements } from './helpers';
+
+export type SeparatorOrientation = "vertical" | "horizontal";
 
 export interface SeparatorProps {
     children?: JSX.Element[];
     separator?: JSX.Element;
     width: number;
+    orientation?: SeparatorOrientation;
 }
 
 export default class Separator extends React.Component<SeparatorProps> {
@@ -15,28 +19,10 @@ export default class Separator extends React.Component<SeparatorProps> {
 
     public render() {
         const { children, separator } = this.props;
-        const separatedElements = separateElements(children, separator);
+        const separatedElements = separateElements(children, separator, this.props.orientation !== "vertical");
         return (
-            <div className="Separator" style={{width: this.props.width + "vmin"}}>
+            <div className={this.props.orientation === "vertical" ? "VerticalSeparator" : "Separator"} style={{width: this.props.width + "vmin"}}>
                 { separatedElements }
             </div>);
     }
 }
-
-const separateElements = (originalElements?: JSX.Element[], separator?: JSX.Element): JSX.Element[] => {
-    let separatedElements: JSX.Element[] = [];
-
-    if (!originalElements) {
-        return separatedElements;
-    }
-
-    for (let i = 0; i < (originalElements.length * 2) - 1; i++) {
-        if (i % 2 === 0) {
-            separatedElements[i] = originalElements[i/2];
-        } else {
-            separatedElements[i] = separator ||
-                (<div className="SeparatorIcon" key={`separator_${i}`} style={{width: "10vmin"}}>|</div>);
-        }
-    }
-    return separatedElements;
-};

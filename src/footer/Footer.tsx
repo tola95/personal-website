@@ -1,7 +1,6 @@
 import React from 'react';
 import './Footer.css'
 import github from './github.png';
-import instagram from './instagram.png';
 import linkedIn from './linkedIn.png';
 import twitter from './twitter.png'
 import Separator from "../separator/Separator";
@@ -50,7 +49,7 @@ const generateSMIcons = () => {
     return socialsList.map((socialIcon) => {
         const {icon, target} = socialIcon;
         return (
-            <div className="SMIcon">
+            <div className="SMIcon" key={icon}>
                 <a href={target}>
                     <img width="20" height="20" src={icon} alt={icon.valueOf()}/>
                 </a>

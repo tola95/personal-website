@@ -8,3 +8,12 @@
 .SeparatorIcon {
     float: left;
 }
+
+.VerticalSeparator {
+    width: 80vmin;
+    text-align: center;
+    margin-right: 5vmin;
+}
+
+.VerticalSeparatorIcon {
+}

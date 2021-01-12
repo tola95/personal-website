@@ -1,0 +1,16 @@
+.Panel {
+    float: left;
+    margin-left: 15vmin;
+    height: 50vmin;
+    width: 30vmin;
+    text-align: left;
+}
+
+.PanelEntry {
+    float: left;
+    text-align: left;
+}
+
+h2 {
+    border-bottom: 3px solid goldenrod
+}

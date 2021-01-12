@@ -1,0 +1,45 @@
+.TextParagraph {
+    width: 80vmin;
+    float: left;
+    font-size: large;
+}
+
+.PersonalImage {
+    float: right;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+a {
+    color: darkgoldenrod;
+}
+
+.PanelContainer {
+    margin-left: 15vmin;
+    margin-right: 15vmin;
+    height: 50vmin;
+    overflow: hidden;
+}
+
+.TextImageContainer {
+    margin-top: 5vmin;
+    height: 50vmin;
+    margin-left: 15vmin;
+    margin-right: 15vmin;
+}
+
+@keyframes movePanelsUp {
+    from {
+        margin-top: 15vmin;
+    }
+    to {
+        margin-top: 0vmin;
+    }
+}

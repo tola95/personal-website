@@ -5,20 +5,13 @@ import NavBarItem from "./NavBarItem";
 
 export interface NavBarProps {
     items: string[];
-}
-
-export interface NavBarState {
     selectedItem: string;
+    onClick: (item: string) => void;
 }
 
-export const DEFAULT_SELECTED_ITEM = "home";
-
-export default class NavBar extends React.Component<NavBarProps, NavBarState> {
+export default class NavBar extends React.Component<NavBarProps> {
     public constructor(props: any) {
         super(props);
-        this.state = {
-            selectedItem: DEFAULT_SELECTED_ITEM
-        }
     }
 
     public render() {
@@ -35,14 +28,8 @@ export default class NavBar extends React.Component<NavBarProps, NavBarState> {
 
     private generateNavItems = () => {
         return this.props.items.map(item => (
-            <NavBarItem text={item} key={item} selected={this.state.selectedItem === item} onClick={this.onClick.bind(null, item)}/>
+            <NavBarItem text={item} key={item} selected={this.props.selectedItem === item} onClick={this.props.onClick.bind(null, item)}/>
         ));
     };
-
-    private onClick = (item: string) => {
-        this.setState({
-            selectedItem: item
-        });
-    }
 
 }
