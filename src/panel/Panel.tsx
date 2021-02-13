@@ -13,7 +13,7 @@ class Panel extends React.Component<PanelProps> {
         const { title, entries } = this.props;
         const panelEntries = generatePanelEntries(entries);
         return (
-            <div className="Panel">
+            <div className="Panel" style={{animation: `movePanelsUp 1s ease-out`}}>
                 <h2>{title}</h2>
                 <Separator orientation="vertical" width={80}>{panelEntries}</Separator>
             </div>
